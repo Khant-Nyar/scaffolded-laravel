@@ -21,7 +21,7 @@ class ScaffoldedLaravelServiceProvider extends ServiceProvider
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/../config/config.php' => config_path('scaffolded-laravel.php'),
+                __DIR__ . '/../config/config.php' => config_path('scaffolded-laravel.php'),
             ], 'config');
 
             // Publishing the views.
@@ -50,7 +50,7 @@ class ScaffoldedLaravelServiceProvider extends ServiceProvider
     public function register()
     {
         // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'scaffolded-laravel');
+        $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'scaffolded-laravel');
 
         // Register the main class to use with the facade
         $this->app->singleton('scaffolded-laravel', function () {
