@@ -2,21 +2,29 @@
 
 namespace Khantnyar\ScaffoldedLaravel;
 
+use Khantnyar\ScaffoldedLaravel\Console\Commands\MakeApiControllerCommand;
+use Khantnyar\ScaffoldedLaravel\Console\Commands\InstallCommand;
 use Illuminate\Support\ServiceProvider;
 
 class ScaffoldedLaravelServiceProvider extends ServiceProvider
 {
-    protected $vendor = 'Khantnyar';
-    protected $package = 'ScaffoldedLaravel';
+    protected $vendor   = 'Khantnyar';
+    protected $package  = 'ScaffoldedLaravel';
     /**
      * Bootstrap the application services.
      */
     public function boot()
     {
+        $this->publisherConfigs();
+
+        if ($this->app->runningInConsole()) {
+            $this->registerCommands();
+        }
+        $this->registerRoutes();
+        // $this->registerRoutes();
+        $this->registerViews();
         // $this->loadRoutesFrom(__DIR__.'/routes/web.php');
         // $this->loadRoutesFrom(__DIR__ . '/routes/api.php');
-        $this->registerRoutes();
-        $this->registerViews();
 
         /*
          * Optional methods to load your package assets
@@ -69,13 +77,54 @@ class ScaffoldedLaravelServiceProvider extends ServiceProvider
         // });
     }
 
+
+    /**
+     * publishing the application config
+     */
+    protected function publisherConfigs()
+    {
+        // $this->publishes([
+        //     __DIR__ . '/../config/courier.php' => config_path('courier.php'),
+        // ]);
+        // $this->mergeConfigFrom(
+        //     __DIR__ . '/../config/courier.php',
+        //     'courier'
+        // );
+    }
+
+    /**
+     * Register the application Route.
+     */
     protected function registerRoutes()
     {
         $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
         $this->loadRoutesFrom(__DIR__ . '/routes/api.php');
     }
+
+    /**
+     * Register the application Migrations.
+     */
+    protected function registerMigrations()
+    {
+        // $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+    }
+    /**
+     * Register the application Views.
+     */
     protected function registerViews()
     {
-        // $this->loadViewsFrom(__DIR__.'/../resources/views', 'scaffolded-laravel');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'scaffolded-laravel');
+        // $this->publishes([
+        //     __DIR__ . '/../resources/views' => resource_path('views/vendor/courier'),
+        // ]);
+    }
+
+
+    protected function registerCommands()
+    {
+        $this->commands([
+            InstallCommand::class,
+            MakeApiControllerCommand::class
+        ]);
     }
 }

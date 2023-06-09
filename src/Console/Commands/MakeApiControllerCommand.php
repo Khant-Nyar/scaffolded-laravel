@@ -30,7 +30,7 @@ class MakeApiControllerCommand extends Command
         $name = $this->argument('name');
         $controllerName = $name . 'Controller';
         $controllerPath = 'app/Http/Controllers/Api/' . $controllerName . '.php';
-        $stubPath = base_path('../../../stubs/ApiController.stub');
+        $stubPath = base_path('packages\\khantnyar\\scaffolded-laravel\\stubs\\ApiController.stub'); ///
 
         $stub = File::get($stubPath);
         $stub = str_replace('{{CLASS}}', $controllerName, $stub);
