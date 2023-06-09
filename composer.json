@@ -3,11 +3,12 @@
     "description": "scaffolded for api with default respon,passport auth for api,making with my default admin dashboard",
     "keywords": [
         "khantnyar",
-        "scaffolded-laravel"
+        "scaffolded-laravel",
+        "laravel"
     ],
     "homepage": "https://github.com/khantnyar/scaffolded-laravel",
     "license": "MIT",
-    "type": "library",
+    "type": "project",
     "authors": [
         {
             "name": "Khant-Nyar",
@@ -17,9 +18,15 @@
     ],
     "require": {
         "php": "^8.2",
-        "illuminate/support": "*"
+        "guzzlehttp/guzzle": "^7.7",
+        "illuminate/support": "*",
+        "laravel/framework": "^10.13",
+        "laravel/passport": "^11.8",
+        "proengsoft/laravel-jsvalidation": "^4.8",
+        "yajra/laravel-datatables": "^10.0"
     },
     "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.17",
         "orchestra/testbench": "^8.5",
         "phpunit/phpunit": "^9.6"
     },

@@ -5,7 +5,9 @@ namespace Khantnyar\ScaffoldedLaravel;
 class ScaffoldedLaravel
 {
     // Build your next great package.
-    public static function event()
+    public static function hi()
     {
+        echo "first laravel packages";
+        // uses ScaffoldedLaravel::hi()
     }
 }

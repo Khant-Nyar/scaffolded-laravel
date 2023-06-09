@@ -5,4 +5,9 @@
  */
 return [
 
+    'stubs' => [
+        'enabled' => false,
+        'path' => base_path() . '/vendor/nwidart/laravel-modules/src/Commands/stubs'
+    ]
+
 ];
