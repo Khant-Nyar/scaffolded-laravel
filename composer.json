@@ -1,18 +1,13 @@
 {
     "name": "khantnyar/scaffolded-laravel",
     "description": "scaffolded for api with default respon,passport auth for api,making with my default admin dashboard",
-    "version": "0.0.1-beta",
+   
     "keywords": [
         "khantnyar",
         "scaffolded-laravel",
         "laravel"
     ],
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://github.com/Khant-Nyar/scaffolded-laravel"
-        }
-    ],
+    "minimum-stability": "dev",
     "homepage": "https://github.com/khantnyar/scaffolded-laravel",
     "license": "MIT",
     "type": "project",
